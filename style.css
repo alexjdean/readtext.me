@@ -1,0 +1,31 @@
+.btn:focus,
+select:focus {
+  outline: 0;
+}
+
+.text-box select {
+  background-color: darksalmon;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  height: 30px;
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
