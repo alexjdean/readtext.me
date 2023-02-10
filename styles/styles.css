@@ -1,0 +1,4 @@
+.btn:focus,
+select:focus {
+  outline: 0;
+}
