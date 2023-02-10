@@ -2,10 +2,7 @@ const voicesSelect = document.getElementById('voices');
 const textarea = document.getElementById('text');
 const readBtn = document.getElementById('read');
 
-// Init speech synth
 const message = new SpeechSynthesisUtterance();
-
-// Store voices
 let voices = [];
 
 function getVoices() {
@@ -21,32 +18,29 @@ function getVoices() {
   });
 }
 
-// Set text
 function setTextMessage(text) {
   message.text = text;
 }
 
-// Speak text
 function speakText() {
   speechSynthesis.cancel();
   speechSynthesis.speak(message);
 }
 
-// Set voice
 function setVoice(e) {
   message.voice = voices.find(voice => voice.name === e.target.value);
 }
 
-// Voices changed
-speechSynthesis.addEventListener('voiceschanged', getVoices);
+function init() {
+  speechSynthesis.addEventListener('voiceschanged', getVoices);
+  voicesSelect.addEventListener('change', setVoice);
 
-// Change voice
-voicesSelect.addEventListener('change', setVoice);
+  readBtn.addEventListener('click', () => {
+    setTextMessage(textarea.value);
+    speakText();
+  });
 
-// Read text button
-readBtn.addEventListener('click', () => {
-  setTextMessage(textarea.value);
-  speakText();
-});
+  getVoices();
+}
 
-getVoices();
+init();
