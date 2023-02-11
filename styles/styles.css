@@ -66,6 +66,7 @@ h3 {
   display: block;
   margin-top: 30px;
   font-family: 'Gentium Book Plus', serif;
+  font-size: 130%;
 }
        
 .submit-btn:hover {
